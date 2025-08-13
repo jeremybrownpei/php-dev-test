@@ -113,6 +113,9 @@ class Checkout extends Layout
                                     <input type="text" name="billing_address_postalcode" id="billing_address_postalcode" class="entry entry--postal-code" value="" size="10" maxlength="50" />
                                 </div>
                             </div>
+                            <div class="form-field">
+                                <input type="submit" value="Place Order" class="form-submit" />
+                            </div>
                         </div>
                     </div>
                 </form>

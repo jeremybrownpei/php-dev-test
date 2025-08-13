@@ -104,6 +104,26 @@ main {
   padding: 0.5rem 0 0;
 }
 
+.form-submit {
+  background-color: #666;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2em;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
+
+.form-submit:hover {
+  background-color: #ff6e00;
+  -webkit-transition: background-color 250ms linear;
+  -ms-transition: background-color 250ms linear;
+  transition: background-color 250ms linear;
+}
+
 .entry,
 .textarea {
   padding: 0.5rem;
