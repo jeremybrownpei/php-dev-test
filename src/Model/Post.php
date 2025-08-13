@@ -2,6 +2,9 @@
 
 namespace silverorange\DevTest\Model;
 
+use silverorange\DevTest\Database;
+use silverorange\DevTest\Config;
+
 class Post
 {
     public string $id;
@@ -10,4 +13,29 @@ class Post
     public string $created_at;
     public string $modified_at;
     public string $author;
+
+    
+    public static function getAllPostsIds(): array
+    {
+        $config = new Config();
+        $db = (new Database($config->dsn))->getConnection();
+        $q = $db->prepare('SELECT id FROM posts');
+        $q->execute();
+        return $q->fetchAll(\PDO::FETCH_COLUMN);
+    }
+
+    public static function insertPost(string $id, string $title, string $body, string $created_at, string $modified_at, string $author): bool
+    {
+        $config = new Config();
+        $db = (new Database($config->dsn))->getConnection();
+        $q = $db->prepare('INSERT INTO posts (id, title, body, created_at, modified_at, author) VALUES (:id, :title, :body, :created_at, :modified_at, :author)');
+        return $q->execute([
+            ':id' => $id,
+            ':title' => $title,
+            ':body' => $body,
+            ':created_at' => $created_at,
+            ':modified_at' => $modified_at,
+            ':author' => $author,
+        ]);
+    }
 }
