@@ -64,6 +64,12 @@ main {
   margin: 0 0 1rem;
 }
 
+.checkout-product-thumbnail {
+  width: 100%;  
+  max-width: 10rem;
+  height: auto;
+}
+
 .form-field {
   padding: 0.5rem 0;
 }
