@@ -9,7 +9,9 @@ class PostDetails extends Layout
     protected function renderPage(Context $context): string
     {
         return <<<HTML
-            <p>SHOW CONTENT FOR {$context->content} HERE</p>
+            <h1 class="post-title">{$context->title}</h1>
+            <div>{$context->content}</div>
+
             HTML;
     }
 }

@@ -149,3 +149,9 @@ main {
   border-bottom: 1px solid #eee;
   padding: 0.5rem;
 }
+
+.post-author-container {
+  text-align: right;
+  font-size: 0.8em;
+  color: #666;
+}

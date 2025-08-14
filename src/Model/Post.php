@@ -14,8 +14,8 @@ class Post
     public string $modified_at;
     public string $author;
 
-    
-    public static function getAllPostsIds(): array
+
+    public static function getAllPostsIds(): object|array
     {
         $config = new Config();
         $db = (new Database($config->dsn))->getConnection();
@@ -37,5 +37,16 @@ class Post
             ':modified_at' => $modified_at,
             ':author' => $author,
         ]);
+    }
+
+    public static function getPostById(string $id): object|array
+    {
+        $config = new Config();
+        $db = (new Database($config->dsn))->getConnection();
+        $q = $db->prepare('SELECT * FROM posts WHERE id = :id');
+        $q->execute([':id' => $id]);
+        $data = $q->fetch(\PDO::FETCH_OBJ);
+
+        return $data ? $data : [];
     }
 }
