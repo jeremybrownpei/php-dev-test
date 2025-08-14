@@ -155,3 +155,18 @@ main {
   font-size: 0.8em;
   color: #666;
 }
+
+.post-list-item {
+  display: block;
+  padding: 1rem;
+  border: none;
+  width: 100%;
+  color: #666;
+}
+.post-list-item:hover {
+  color: #e46200;
+  background-color: color-mix(in srgb, #e46200 20%, transparent);
+}
+.post-list-item h2 {
+  margin: 0;
+}

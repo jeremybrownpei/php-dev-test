@@ -24,6 +24,15 @@ class Post
         return $q->fetchAll(\PDO::FETCH_COLUMN);
     }
 
+    public static function getAllPostsListReverseOrder(): object|array
+    {
+        $config = new Config();
+        $db = (new Database($config->dsn))->getConnection();
+        $q = $db->prepare('SELECT id, title, author FROM posts ORDER BY created_at DESC');
+        $q->execute();
+        return $q->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
     public static function insertPost(string $id, string $title, string $body, string $created_at, string $modified_at, string $author): bool
     {
         $config = new Config();

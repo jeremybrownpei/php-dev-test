@@ -9,7 +9,8 @@ class PostIndex extends Layout
     protected function renderPage(Context $context): string
     {
         return <<<HTML
-            <p>SHOW ALL {$context->content} POSTS HERE</p>
+            <h1>Posts</h1>
+            {$context->content}
             HTML;
     }
 }
